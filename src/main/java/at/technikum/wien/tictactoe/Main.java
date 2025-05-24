@@ -9,7 +9,8 @@ public class Main {
 
         System.out.println("Willkommen bei Tic-Tac-Toe!");
 
-        while (true) {
+        boolean keepPlaying = true;
+        while (keepPlaying) {
             game.getBoard().print(game.getCurrentPlayer());
 
             try {
@@ -28,7 +29,11 @@ public class Main {
                 System.out.println("Fehlerhafte Eingabe!");
                 scanner.nextLine();
             }
+
+            // Beispiel für späteren Spielabbruch (aktuell bleibt immer true)
+            // keepPlaying = false;
         }
+
+        scanner.close();
     }
 }
-

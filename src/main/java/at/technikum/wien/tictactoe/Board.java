@@ -1,7 +1,7 @@
 package at.technikum.wien.tictactoe;
 
 public class Board {
-    private char[][] cells;
+    private final char[][] cells;
 
     public Board() {
         cells = new char[3][3];
@@ -41,5 +41,8 @@ public class Board {
             if (i < 2) System.out.println("---+---+---");
         }
     }
-}
 
+    public char[][] getCells() {
+        return cells;
+    }
+}

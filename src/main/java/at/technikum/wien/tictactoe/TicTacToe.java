@@ -1,8 +1,8 @@
 package at.technikum.wien.tictactoe;
 
 public class TicTacToe {
-    private Player currentPlayer;
-    private Board board;
+    private final Player currentPlayer;
+    private final Board board;
 
     public TicTacToe() {
         currentPlayer = new Player('X');
@@ -21,4 +21,3 @@ public class TicTacToe {
         return board;
     }
 }
-
