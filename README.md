@@ -53,6 +53,9 @@ Das `.jar`-File ist unter **GitHub → Actions → letzter Workflow-Lauf → Art
 ├── src/
 │   ├── main/java/…                 # Java Quellcode (Board, Player, Game-Logik)
 │   └── test/java/…                 # JUnit Testklassen
+├── target
+│   ├── classes/
+│   └── generated-sources/
 ├── pom.xml                         # Maven Build-Konfiguration
 ├── .gitignore
 └── README.md                       # Diese Datei
