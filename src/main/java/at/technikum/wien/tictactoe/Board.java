@@ -41,8 +41,4 @@ public class Board {
             if (i < 2) System.out.println("---+---+---");
         }
     }
-
-    public char[][] getCells() {
-        return cells;
-    }
 }

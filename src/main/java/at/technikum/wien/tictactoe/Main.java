@@ -9,8 +9,7 @@ public class Main {
 
         System.out.println("Willkommen bei Tic-Tac-Toe!");
 
-        boolean keepPlaying = true;
-        while (keepPlaying) {
+        while (true) {
             game.getBoard().print(game.getCurrentPlayer());
 
             try {
@@ -18,7 +17,7 @@ public class Main {
                 int row = scanner.nextInt();
                 System.out.print("column (0-2): ");
                 int col = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); // Eingabepuffer leeren
 
                 boolean moveMade = game.makeMove(row, col);
 
@@ -27,13 +26,8 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println("Fehlerhafte Eingabe!");
-                scanner.nextLine();
+                scanner.nextLine(); // Eingabepuffer leeren
             }
-
-            // Beispiel für späteren Spielabbruch (aktuell bleibt immer true)
-            // keepPlaying = false;
         }
-
-        scanner.close();
     }
 }
