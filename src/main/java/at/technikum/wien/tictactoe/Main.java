@@ -7,26 +7,26 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         TicTacToe game = new TicTacToe();
 
-        System.out.println("Willkommen bei Tic-Tac-Toe!");
-
         while (true) {
-            game.getBoard().print(game.getCurrentPlayer());
+            System.out.println();
+            System.out.println("Current Player: " + game.getCurrentPlayer().getMarker());
+            game.getBoard().print();
 
             try {
-                System.out.print("row (0-2): ");
+                System.out.print("row (0–2): ");
                 int row = scanner.nextInt();
-                System.out.print("column (0-2): ");
+                System.out.print("column (0–2): ");
                 int col = scanner.nextInt();
-                scanner.nextLine(); // Eingabepuffer leeren
+                scanner.nextLine();
 
                 boolean moveMade = game.makeMove(row, col);
 
                 if (!moveMade) {
-                    System.out.println("Ungültiger Zug. Bitte erneut versuchen.");
+                    System.out.println("Invalid move. Please try again.");
                 }
             } catch (Exception e) {
-                System.out.println("Fehlerhafte Eingabe!");
-                scanner.nextLine(); // Eingabepuffer leeren
+                System.out.println("Invalid input! Please enter two numbers.");
+                scanner.nextLine();
             }
         }
     }

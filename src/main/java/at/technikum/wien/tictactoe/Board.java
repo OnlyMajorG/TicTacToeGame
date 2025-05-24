@@ -16,22 +16,21 @@ public class Board {
         return false;
     }
 
-    public boolean isCellEmpty(int x, int y) {
+    private boolean isCellEmpty(int x, int y) {
         return cells[x][y] == ' ';
     }
 
-    public boolean isValidCoordinate(int x, int y) {
+    private boolean isValidCoordinate(int x, int y) {
         return x >= 0 && x < 3 && y >= 0 && y < 3;
     }
 
-    public void clear() {
+    private void clear() {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
                 cells[i][j] = ' ';
     }
 
-    public void print(Player player) {
-        System.out.println("Spieler " + player.getMarker() + " ist am Zug:");
+    public void print() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print(" " + cells[i][j] + " ");
