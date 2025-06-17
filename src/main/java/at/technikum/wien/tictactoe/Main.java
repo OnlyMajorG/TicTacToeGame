@@ -28,6 +28,22 @@ public class Main {
                 System.out.println("Invalid input! Please enter two numbers.");
                 scanner.nextLine();
             }
+
+            if (game.hasWinner()) {
+                game.getBoard().print();
+                char winnerSymbol = game.getCurrentPlayer().getMarker();
+                System.out.println("Spieler " + winnerSymbol + " hat gewonnen!");
+                TicTacToe.askForRestart();
+                break;
+            } else if (game.getBoard().isFull()) {
+                System.out.println("Unentschieden! Das Spielfeld ist voll.");
+                TicTacToe.askForRestart();
+                break;
+            }
+
+            game.nextTurn();
+
         }
     }
 }
+
