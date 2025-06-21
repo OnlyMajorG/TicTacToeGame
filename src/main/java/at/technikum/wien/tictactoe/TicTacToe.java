@@ -1,5 +1,7 @@
 package at.technikum.wien.tictactoe;
 
+import java.util.Scanner;
+
 public class TicTacToe {
     private final Player player1;
     private final Player player2;
@@ -14,11 +16,11 @@ public class TicTacToe {
     }
 
     public boolean makeMove(int x, int y) {
-        boolean success = board.place(x, y, currentPlayer.getMarker());
-        if (success) {
-            switchCurrentPlayer();
-        }
-        return success;
+        return board.place(x, y, currentPlayer.getMarker());
+    }
+
+    public void nextTurn() {
+        switchCurrentPlayer();
     }
 
     private void switchCurrentPlayer() {
@@ -31,5 +33,34 @@ public class TicTacToe {
 
     public Board getBoard() {
         return board;
+    }
+
+    public boolean hasWinner() {
+        char[][] cells = board.getCells();
+
+        // Zeilen und Spalten prüfen
+        for (int i = 0; i < 3; i++) {
+            if (cells[i][0] != ' ' && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) return true;
+            if (cells[0][i] != ' ' && cells[0][i] == cells[1][i] && cells[1][i] == cells[2][i]) return true;
+        }
+
+        // Diagonalen prüfen
+        if (cells[0][0] != ' ' && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) return true;
+        if (cells[0][2] != ' ' && cells[0][2] == cells[1][1] && cells[1][1] == cells[2][0]) return true;
+
+        return false;
+    }
+
+    public static void askForRestart() {
+        System.out.println("Möchten Sie ein neues Spiel starten? (Ja/Nein)");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase("Ja")) {
+            Main.main(null); // Neustart
+        } else {
+            System.out.println("Spiel beendet.");
+            System.exit(0);
+        }
+
     }
 }

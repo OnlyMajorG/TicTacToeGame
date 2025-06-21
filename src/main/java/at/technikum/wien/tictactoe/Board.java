@@ -8,6 +8,10 @@ public class Board {
         clear();
     }
 
+    public char[][] getCells() {
+        return cells;
+    }
+
     public boolean place(int x, int y, char marker) {
         if (isValidCoordinate(x, y) && isCellEmpty(x, y)) {
             cells[x][y] = marker;
@@ -40,4 +44,16 @@ public class Board {
             if (i < 2) System.out.println("---+---+---");
         }
     }
+
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
