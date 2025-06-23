@@ -28,7 +28,7 @@ public class Board {
         return x >= 0 && x < 3 && y >= 0 && y < 3;
     }
 
-    private void clear() {
+    public void clear() {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
                 cells[i][j] = ' ';
