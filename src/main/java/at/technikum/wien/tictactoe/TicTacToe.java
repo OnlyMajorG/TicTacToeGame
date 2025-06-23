@@ -51,16 +51,22 @@ public class TicTacToe {
         return false;
     }
 
-    public static void askForRestart() {
-        System.out.println("Möchten Sie ein neues Spiel starten? (Ja/Nein)");
+    public void resetGame() {
+        board.clear();
+        // Startspieler wechseln für neues Spiel
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+    }
+
+    public static boolean askForRestart() {
+        System.out.println("Möchten Sie ein neues Spiel starten? (J/N)");
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        if (input.equalsIgnoreCase("Ja")) {
-            Main.main(null); // Neustart
+        String input = scanner.nextLine().trim().toLowerCase();
+        
+        if (input.equals("j") || input.equals("ja") || input.equals("yes") || input.equals("y")) {
+            return true;
         } else {
             System.out.println("Spiel beendet.");
-            System.exit(0);
+            return false;
         }
-
     }
 }
