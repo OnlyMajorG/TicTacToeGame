@@ -34,6 +34,7 @@ public class Main {
 
                 if (game.hasWinner()) {
                     System.out.println();
+
                     game.getBoard().print();
                     char winnerSymbol = game.getCurrentPlayer().getMarker();
                     System.out.println("Spieler " + winnerSymbol + " hat gewonnen!");
